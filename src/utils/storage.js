@@ -39,4 +39,4 @@ export default {
   remove,
   multiGet,
   multiRemove,
-}s
+}

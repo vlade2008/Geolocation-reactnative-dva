@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-native-scripts": "1.11.1",
+    "babel-plugin-import": "^1.6.7",
     "jest-expo": "25.0.0",
+    "react-native-scripts": "1.11.1",
     "react-test-renderer": "16.2.0"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
@@ -27,7 +28,7 @@
     "react": "16.2.0",
     "react-addons-update": "^15.6.2",
     "react-dom": "^16.2.0",
-    "react-native": "0.52.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-navigation": "^1.5.8",
     "react-navigation-redux-helpers": "^1.0.3",
     "react-redux": "^5.0.7"

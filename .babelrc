@@ -6,6 +6,6 @@
     }
   },
   "plugins": [
-   ["import", { "libraryName": "antd-mobile" }]
+   ["import", { "libraryName": "antd-mobile" }] 
  ]
 }
