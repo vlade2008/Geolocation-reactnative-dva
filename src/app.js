@@ -9,10 +9,11 @@ import Router, { routerMiddleware } from './router'
 
 
 import routerModel from './model/router'
+import appModel from './model/app'
 
 const app = dva({
   initialState: {},
-  models: [routerModel],
+  models: [routerModel,appModel],
   onAction: [routerMiddleware],
   onError(e) {
     console.log('onerror', e)

@@ -16,6 +16,7 @@ import Loading from './container/Loading'
 
 //import testing
 import Main from './components/Main'
+import Testing from './components/Testing'
 
 
 
@@ -31,7 +32,8 @@ const addListener = createReduxBoundAddListener('root')
 
 const AppNavigator = StackNavigator(
   {
-    Main:Main
+    Main:Main,
+    Testing:Testing
   },
   {
     headerMode: 'float'
@@ -55,9 +57,9 @@ class Router extends PureComponent {
       state: router,
       addListener,
     })
-
-    console.log(app,'iyang app state');
-    // if (app.loading) return <Loading />
+    //
+    // console.log(app,'iyang app state');
+    if (app.loading) return <Loading />
 
     return <AppNavigator navigation={navigation} />
   }
