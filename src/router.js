@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 
-import { StackNavigator,addNavigationHelpers } from 'react-navigation'
+import { StackNavigator,addNavigationHelpers,TabNavigator,TabBarBottom } from 'react-navigation'
 
 import {
   initializeListeners,
@@ -20,6 +20,12 @@ import Testing from './components/Testing'
 
 
 
+//import route
+import About from './routes/About'
+import List from './routes/List'
+import MapPage from './routes/MapPage'
+
+
 
 
 export const routerMiddleware = createReactNavigationReduxMiddleware(
@@ -30,12 +36,30 @@ export const routerMiddleware = createReactNavigationReduxMiddleware(
 const addListener = createReduxBoundAddListener('root')
 
 
+const AppTabNavigator = TabNavigator(
+  {
+    About:{screen:About},
+    MapPage:{screen:MapPage},
+    List:{screen:List}
+
+  },
+  {
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
+    swipeEnabled: true,
+    animationEnabled: true,
+    lazyLoad: false,
+  }
+)
+
 const AppNavigator = StackNavigator(
   {
     Main:Main,
-    Testing:Testing
+    Testing:Testing,
+    Home:AppTabNavigator,
   },
   {
+    initialRouteName:'Home',
     headerMode: 'float'
   }
 )
