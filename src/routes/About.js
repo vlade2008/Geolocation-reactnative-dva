@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { NavigationActions } from 'react-navigation'
-import { Button,Icon } from 'antd-mobile'
 import { connect } from 'react-redux'
 import { MaterialIcons } from '@expo/vector-icons';
 import {computeSize} from '../utils/DeviceRatio'
+
+import { Button,Icon,WingBlank,WhiteSpace } from 'antd-mobile'
 
 @connect()
 class About extends Component {
@@ -23,10 +24,12 @@ class About extends Component {
 
   render() {
     return (
-      <View style={{flex:1,backgroudColor:'pink'}}>
-        <Text style={{alignItem:'center'}}>About</Text>
-
-      </View>
+      <WingBlank>
+        <WhiteSpace />
+          <Text style={{fontSize:computeSize(45),color:'gray'}}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </Text>
+      </WingBlank>
     );
   }
 }

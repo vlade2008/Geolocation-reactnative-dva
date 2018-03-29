@@ -22,7 +22,7 @@ import Testing from './components/Testing'
 
 //import route
 import About from './routes/About'
-import List from './routes/List'
+import ListMap from './routes/ListMap'
 import MapPage from './routes/MapPage'
 
 
@@ -40,10 +40,11 @@ const AppTabNavigator = TabNavigator(
   {
     About:{screen:About},
     MapPage:{screen:MapPage},
-    List:{screen:List}
+    ListMap:{screen:ListMap}
 
   },
   {
+    initialRouteName:'ListMap',
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     swipeEnabled: true,

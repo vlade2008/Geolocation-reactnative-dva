@@ -3,6 +3,13 @@
     "sdkVersion": "25.0.0",
     "icon":"./assets/applogo.png",
     "version": "1.0.0",
-    "name":"Geolocation"
-  }
+    "name":"Geolocation",
+
+    "android":{
+      "package": "com.christian.geolocation"
+     }
+
+
+  },
+
 }

@@ -5,6 +5,8 @@ import { Button } from 'antd-mobile'
 import { connect } from 'react-redux'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {computeSize} from '../utils/DeviceRatio'
+import { MapView } from 'expo';
+
 
 @connect()
 class MapPage extends Component {
@@ -18,11 +20,16 @@ class MapPage extends Component {
     }
   }
   render() {
-    console.log('meng load ko');
     return (
-      <View style={{flex:1,backgroudColor:'black'}}>
-        <Text style={{alignItem:'center'}}>MapPage</Text>
-      </View>
+      <MapView
+        style={{ flex: 1 }}
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+      />
     );
   }
 }
