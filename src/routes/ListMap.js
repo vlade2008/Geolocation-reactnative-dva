@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View,ScrollView,FlatList } from 'react-native';
 import { NavigationActions } from 'react-navigation'
-import { List,WingBlank,WhiteSpace,SearchBar } from 'antd-mobile'
+import { List,WingBlank,WhiteSpace,SearchBar,Flex } from 'antd-mobile'
 import { connect } from 'react-redux'
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons ,MaterialIcons,MaterialCommunityIcons} from '@expo/vector-icons';
 import {computeSize} from '../utils/DeviceRatio'
 
 
@@ -27,17 +27,36 @@ class ListMap extends Component {
 
 
   _renderItem = (item) =>{
-    return ()=>{
-
-
       return(
-        <View>
 
+        <View style={{flex:1,marginTop:computeSize(10)}}>
+          <WingBlank>
+            <Item style={{borderRadius:computeSize(10)}}>
+                <Flex>
+                  <Flex.Item>
+                    <Text style={{fontSize:computeSize()}}>{item.name}</Text>
+                  </Flex.Item>
+                  <Flex.Item>
+                    <Flex  >
+                      <Flex.Item></Flex.Item>
+                      <Flex.Item >
+                        <Text style={{fontSize:computeSize(25)}}>{item.description}</Text>
+                        <WhiteSpace/>
+                        <Text style={{fontSize:computeSize(25)}}>{item.address}</Text>
+                      </Flex.Item>
+                      <Flex.Item style={{flex:0.5}}>
+                        {item.iconRender}
+                      </Flex.Item>
+                    </Flex>
+                  </Flex.Item>
+                </Flex>
+            </Item>
+          </WingBlank>
         </View>
       )
-
-    }
   }
+
+  _keyExtractor = (item, index) => item.id;
 
 
   render() {
@@ -48,14 +67,16 @@ class ListMap extends Component {
         name:'Bohol Avenue',
         price:'12,000',
         description:'Restaurant',
-        address:'Philipines'
+        address:'Philipines',
+        iconRender:(<MaterialIcons name={"restaurant"} size={computeSize(60)}  color={'red'} />)
       },
       {
         id:'2',
         name:'Dauis Resort',
         price:'50,000',
-        description:'Coffee Shop',
-        address:'Malaysia'
+        description:'Coffee',
+        address:'Malaysia',
+        iconRender:(<MaterialCommunityIcons name={"coffee"} size={computeSize(60)}  color={'green'}/>)
       }
     ]
 
@@ -65,10 +86,11 @@ class ListMap extends Component {
       <View style={{flex:1}}>
         <SearchBar placeholder="Search" maxLength={8} />
 
-        {/* <FlatList
+        <FlatList
           data={data}
-          renderitem={this._renderItem}
-         /> */}
+          keyExtractor={this._keyExtractor}
+          renderItem={({ item }) => this._renderItem(item)}
+         />
 
       </View>
 
