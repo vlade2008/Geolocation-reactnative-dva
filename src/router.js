@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
+import {Platform} from 'react-native'
 import { connect } from 'react-redux'
-
 
 import { StackNavigator,addNavigationHelpers,TabNavigator,TabBarBottom } from 'react-navigation'
 
@@ -48,7 +48,10 @@ const AppTabNavigator = TabNavigator(
     tabBarPosition: 'bottom',
     swipeEnabled: true,
     animationEnabled: true,
-    lazyLoad: false,
+    lazyLoad: true,
+    tabBarOptions: {
+      activeTintColor: Platform.OS === 'ios' ? '#2196F3' : '#fff',
+    },
   }
 )
 
